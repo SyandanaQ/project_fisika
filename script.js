@@ -148,14 +148,17 @@ function animateNewton3() {
     ctx3.lineTo(canvas3.width, centerY + 30);
     ctx3.stroke();
     
+    // Kecepatan berdasarkan gaya (semakin besar gaya, semakin cepat)
+    const speed = Math.min(Math.abs(anim3.force) * 0.05, 1);
+    
     // Animation of pushing
     if (anim3.pushing) {
-        anim3.x1 = Math.min(anim3.x1 + 0.5, 45);
-        anim3.x2 = Math.max(anim3.x2 - 0.5, 55);
+        anim3.x1 = Math.min(anim3.x1 + speed, 45);
+        anim3.x2 = Math.max(anim3.x2 - speed, 55);
         if (anim3.x1 >= 45) anim3.pushing = false;
     } else {
-        anim3.x1 = Math.max(anim3.x1 - 0.5, 40);
-        anim3.x2 = Math.min(anim3.x2 + 0.5, 60);
+        anim3.x1 = Math.max(anim3.x1 - speed, 40);
+        anim3.x2 = Math.min(anim3.x2 + speed, 60);
         if (anim3.x1 <= 40) anim3.pushing = true;
     }
     
@@ -251,13 +254,20 @@ function calcNewton2() {
     const F = m * a;
     result.textContent = `Gaya total: ${F.toFixed(2)} N`;
     
+    // Reset semua nilai animasi
     anim2.mass = m;
     anim2.acceleration = a;
-    anim2.velocity = 0;
-    anim2.x = 50;
-    anim2.active = true;
+    anim2.velocity = 0;  // Reset velocity ke 0
+    anim2.x = 50;        // Reset posisi ke awal
     
-    animateNewton2();
+    // Stop animasi lama jika masih berjalan
+    anim2.active = false;
+    
+    // Tunggu sebentar lalu mulai animasi baru
+    setTimeout(() => {
+        anim2.active = true;
+        animateNewton2();
+    }, 50);
 }
 
 function calcNewton3() {
@@ -271,7 +281,11 @@ function calcNewton3() {
 
     result.textContent = `Gaya reaksi = ${F} N (berlawanan arah)`;
     
+    // Reset animasi sebelum set nilai baru
     anim3.force = F;
+    anim3.x1 = 40;
+    anim3.x2 = 60;
+    anim3.pushing = false;
     anim3.active = true;
     
     animateNewton3();
