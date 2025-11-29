@@ -13,40 +13,43 @@
     </header>
 
     <section class="card law1">
-        <h2>Hukum Newton 1</h2>
+        <h2>Hukum Newton 1 - Inersia</h2>
         <div class="theory">
             <h3>Penjelasan Teori</h3>
             <p>Hukum Newton 1 (Hukum Kelembaman) menyatakan bahwa benda akan tetap diam atau bergerak lurus beraturan selama tidak ada gaya yang bekerja padanya (ΣF = 0).</p>
+            <canvas id="canvas1" class="animation-canvas"></canvas>
         </div>
         <label>Gaya total (N):</label>
-        <input type="number" id="n1_force" />
-        <button onclick="calcNewton1()">Hitung</button>
+        <input type="number" id="n1_force" placeholder="Masukkan gaya total" />
+        <button onclick="calcNewton1()">Hitung & Animasikan</button>
         <p id="n1_result" class="result"></p>
     </section>
 
     <section class="card law2">
-        <h2>Hukum Newton 2</h2>
+        <h2>Hukum Newton 2 - F = m × a</h2>
         <div class="theory">
             <h3>Penjelasan Teori</h3>
             <p>Hukum Newton 2 menyatakan bahwa percepatan sebuah benda sebanding dengan gaya total yang bekerja padanya dan berbanding terbalik dengan massanya (F = m × a).</p>
+            <canvas id="canvas2" class="animation-canvas"></canvas>
         </div>
         <label>Massa (kg):</label>
-        <input type="number" id="n2_mass" />
+        <input type="number" id="n2_mass" placeholder="Masukkan massa" />
         <label>Percepatan (m/s²):</label>
-        <input type="number" id="n2_acc" />
-        <button onclick="calcNewton2()">Hitung</button>
+        <input type="number" id="n2_acc" placeholder="Masukkan percepatan" />
+        <button onclick="calcNewton2()">Hitung & Animasikan</button>
         <p id="n2_result" class="result"></p>
     </section>
 
     <section class="card law3">
-        <h2>Hukum Newton 3</h2>
+        <h2>Hukum Newton 3 - Aksi-Reaksi</h2>
         <div class="theory">
             <h3>Penjelasan Teori</h3>
             <p>Hukum Newton 3 menyatakan bahwa setiap aksi akan menimbulkan reaksi yang sama besar namun berlawanan arah.</p>
+            <canvas id="canvas3" class="animation-canvas"></canvas>
         </div>
         <label>Gaya aksi (N):</label>
-        <input type="number" id="n3_force" />
-        <button onclick="calcNewton3()">Hitung</button>
+        <input type="number" id="n3_force" placeholder="Masukkan gaya aksi" />
+        <button onclick="calcNewton3()">Hitung & Animasikan</button>
         <p id="n3_result" class="result"></p>
     </section>
 
