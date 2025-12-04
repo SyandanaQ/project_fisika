@@ -227,18 +227,27 @@ function calcNewton1() {
         return;
     }
 
+    // Stop animasi lama
+    anim1.active = false;
+    
+    // Reset dan set nilai baru
     anim1.force = F;
-    anim1.active = true;
     
     if (F === 0) {
         result.textContent = "Benda akan tetap diam atau bergerak lurus beraturan (ΣF = 0).";
         anim1.velocity = 2;
+        anim1.x = 50; // Reset posisi ke awal
     } else {
         result.textContent = "Resultan gaya tidak nol, benda mengalami percepatan.";
         anim1.velocity = 0;
+        anim1.x = canvas1.width / 2; // Set di tengah
     }
     
-    animateNewton1();
+    // Tunggu sebentar lalu mulai animasi baru
+    setTimeout(() => {
+        anim1.active = true;
+        animateNewton1();
+    }, 50);
 }
 
 function calcNewton2() {
